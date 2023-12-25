@@ -44,7 +44,13 @@ func GetAgeUsingName(name string) (string, error) {
 		return "", errors.New(fmt.Sprintf("There was an error decoding the file: %v", err))
 	}
 
-	age := result["age"].(float64)
+	// Try Catch alternative
+	age := 0.0
+	if result["age"] != nil {
+		age = result["age"].(float64)
+	} else {
+		return "Very Distinctive Name\n", nil
+	}
 
 	return fmt.Sprintf("Predicted age for %s is %.2f\n", name, age), nil
 }
@@ -78,6 +84,12 @@ func GetGenderUsingName(name string) (string, error) {
 		return "", errors.New(fmt.Sprintf("There was an error decoding the file: %v \n", err))
 	}
 
+	// Try Catch alternative
 	gender := result["gender"]
+	if result["gender"] != nil {
+		gender = result["gender"]
+	} else {
+		return "Very Distinctive Name\n", nil
+	}
 	return fmt.Sprintf("Predicted gender for %s is %s\n", name, gender), nil
 }
