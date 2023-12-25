@@ -11,10 +11,11 @@ import (
 
 func main() {
 
-	// Initalizing log
+	// log is used to print logs to the console
 	log.SetPrefix("Operations: ")
 	log.SetFlags(0)
 
+	// Println helps us print to the console
 	fmt.Println("This application gets lets you find age and gender by name!")
 	fmt.Println("Please enter your name here:")
 
@@ -31,7 +32,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	fmt.Printf(ageString)
 
 	genderString, err := operations.GetGenderUsingName(name)
