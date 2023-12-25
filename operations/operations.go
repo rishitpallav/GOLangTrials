@@ -11,7 +11,6 @@ import (
 func GetAgeUsingName(name string) (string, error) {
 
 	name = strings.TrimSuffix(name, "\r\n")
-
 	name = strings.TrimSpace(name)
 
 	if name == "" {
@@ -37,7 +36,6 @@ func GetAgeUsingName(name string) (string, error) {
 		return "", errors.New(fmt.Sprintf("There was an error decoding the file: %v", err))
 	}
 
-	// fmt.Printf("result: %v", result)
 	age := result["age"].(float64)
 
 	return fmt.Sprintf("Predicted age for %s is %.2f\n", name, age), nil
@@ -46,7 +44,6 @@ func GetAgeUsingName(name string) (string, error) {
 func GetGenderUsingName(name string) (string, error) {
 
 	name = strings.TrimSuffix(name, "\r\n")
-
 	name = strings.TrimSpace(name)
 
 	if name == "" {
